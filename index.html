@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hangman | Theory of Computation</title>
+
+    <script>
+        function loadQA(){
+            var ans_dict = {
+                0: ["Saab", "Volvo", "BMW", "lhhd", "A"],
+                1: ["hkh", "afdf", "sdff", "fdfd", "B"],
+                2:["jdnflk", "kjhg", "kjhfkd", "iuiy", "D"],
+                3:["kjbb", "iyiy", "wewer", "kjhkh", "C"]
+            }
+            var random_number = Math.floor(((Math.random() * 10) + 1)%3);
+            var str_random_num = random_number.toString();
+            var image_file_name = "assets/" + str_random_num + ".png";
+
+            // Change image and choices as per the random number
+            document.getElementById("state_machine").src = image_file_name;
+            document.getElementById("choice_one").innerHTML = ans_dict[random_number][0];
+            document.getElementById("choice_two").innerHTML = ans_dict[random_number][1];
+            document.getElementById("choice_three").innerHTML = ans_dict[random_number][2];
+            document.getElementById("choice_four").innerHTML = ans_dict[random_number][3];
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+
+  <body onload="loadQA()">
+        <nav class="navbar navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Hangman | Theory of Computation</a>
+        </nav>
+
+        <div class="row">
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">What is the correct answer to the question below?</h5>
+                      <img id="state_machine" src="toc.jpg" class="img-fluid" alt="Responsive image">
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <p class="card-text" id="choice_one">Choice One</p>
+                      <p class="card-text" id="choice_two">Choice Two</p>
+                      <p class="card-text" id="choice_three">Choice Three</p>
+                      <p class="card-text" id="choice_four">Choice Four</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <input type="button" name="set_Value" id="set_Value" value="submit" onclick="setValue()" />
+                            <button type="button" class="btn btn-secondary" onclick="setValue()">A</button>
+                            <button type="button" class="btn btn-secondary">B</button>
+                            <button type="button" class="btn btn-secondary">C</button>
+                            <button type="button" class="btn btn-secondary">D</button>
+                        </div>
+                        <p class="card-text" id="initiate">Not initiated yet.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Score</h5>
+                      <p id="demo" >Click me to change my HTML content (innerHTML).</p>
+                      <p class="card-text" id="some_random_text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+                </div>
+        </div>
+
+        <script type="text/javascript">
+             function setValue() {
+                document.getElementById("demo").innerHTML = "Text is changed.";
+             }
+
+             function initiate(){
+                document.getElementById("initiated").innerHTML = "Function initiated.";
+             }
+
+             
+
+        </script>
+
+  </body>
+
+
+</html>
