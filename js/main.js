@@ -57,11 +57,41 @@ function loadQA(){
 }
 
 function updateScore() {
-document.getElementById("score_display").innerHTML = "Score: " + score.toString();
+    document.getElementById("score_display").innerHTML = "Score: " + score.toString();
 }
 
 function updateHangStage() {
-document.getElementById("hang_stage_display").innerHTML = "Hang Stage: " + hangStage.toString();
+    document.getElementById("hang_stage_display").innerHTML = "Hang Stage: " + hangStage.toString();
+    hangman_picture = document.getElementById("hangman_pic");
+    var file_prefix = "assets/hang";
+    var full_file_name;
+    if (hangStage == 0) {
+        full_file_name = file_prefix + "0" + ".png";
+        loadQA();
+    } else if (hangStage == 1) {
+        full_file_name = file_prefix + "1" + ".png";
+        loadQA();
+    } else if (hangStage == 2) {
+        full_file_name = file_prefix + "2" + ".png";
+        loadQA();
+    } else if (hangStage == 3) {
+        full_file_name = file_prefix + "3" + ".png";
+        loadQA();
+    }  else if (hangStage == 4) {
+        full_file_name = file_prefix + "4" + ".png";
+        loadQA();
+    } else if (hangStage == 5) {
+        full_file_name = file_prefix + "5" + ".png";
+        loadQA();
+    } else if (hangStage == 6) {
+        full_file_name = file_prefix + "6" + ".png";
+        document.getElementById(game_stage).innerHTML = "Almost over!"
+        loadQA();
+    } else if (hangStage >= 7) {
+        full_file_name = file_prefix + "7" + ".png";
+        document.getElementById(game_stage).innerHTML = "Game Over! You are HANGED!"
+    }
+    hangman_picture.src = full_file_name;
 }
 
 function checkChoiceA() {
@@ -69,11 +99,11 @@ function checkChoiceA() {
     if (ans_dict[random_number][4] == "A") {
         score += 5;
         updateScore();
+        loadQA();
     } else {
         hangStage += 1;
         updateHangStage();
     }
-    loadQA();
 }
 
 function checkChoiceB() {
@@ -81,11 +111,11 @@ function checkChoiceB() {
     if (ans_dict[random_number][4] == "B") {
         score += 5;
         updateScore();
+        loadQA();
     } else {
         hangStage += 1;
         updateHangStage();
     }
-    loadQA();
 }
 
 function checkChoiceC() {
@@ -93,11 +123,11 @@ function checkChoiceC() {
     if (ans_dict[random_number][4] == "C") {
         score += 5;
         updateScore();
+        loadQA();
     } else {
         hangStage += 1;
         updateHangStage();
     }
-    loadQA();
 }
 
 function checkChoiceD() {
@@ -105,9 +135,9 @@ function checkChoiceD() {
     if (ans_dict[random_number][4] == "D") {
         score += 5;
         updateScore();
+        loadQA();
     } else {
         hangStage += 1;
         updateHangStage();
     }
-    loadQA();
 }
