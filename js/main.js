@@ -85,13 +85,16 @@ function updateHangStage() {
         loadQA();
     } else if (hangStage == 6) {
         full_file_name = file_prefix + "6" + ".png";
-        document.getElementById(game_stage).innerHTML = "Almost over!"
         loadQA();
     } else if (hangStage >= 7) {
         full_file_name = file_prefix + "7" + ".png";
-        document.getElementById(game_stage).innerHTML = "Game Over! You are HANGED!"
+        hideChoices();
     }
     hangman_picture.src = full_file_name;
+}
+
+function hideChoices() {
+    document.getElementById("choice_buttons").style.visibility = "hidden";
 }
 
 function checkChoiceA() {
